@@ -57,7 +57,7 @@ def test_verdict_p_counts_plans_and_flags_a_falling_sum():
     assert kind == "warning" and "**2** verschiedene Optimalpläne" in text and "sinkt" in text
     rows[2]["total"] = 12.0                                     # Gleichheit zählt nicht als Fallen
     kind, text = ev.verdict_p(rows)
-    assert kind == "info" and "**2** verschiedene Optimalpläne" in text and "an keiner Stelle" in text
+    assert kind == "info" and "**2** verschiedene Optimalpläne" in text and "Rasters nirgends" in text
 
 
 def test_verdict_p_tolerates_a_numerical_wiggle():

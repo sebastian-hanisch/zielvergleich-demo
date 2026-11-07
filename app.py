@@ -143,7 +143,7 @@ st.subheader("🔬 Alle Pläne: Summe gegen Maximum")
 if a.enumerated:
     sums, maxes = _landscape(settings)
     st.plotly_chart(build_landscape(sums, maxes, a.results), width="stretch", key="landscape_chart")
-    st.caption(f"Jeder Punkt ist einer der {a.plans_total} Pläne. Links unten ist besser. Beim Maximum liegen viele Pläne auf derselben Höhe: die Optimalmenge.")
+    st.caption(f"Jeder Punkt ist einer der {a.plans_total} Pläne. Links unten ist besser. Beim Maximum liegen oft viele Pläne auf derselben Höhe; die tiefste Stufe ist die Optimalmenge.")
 else:
     st.info(f"Bei n = {a.inst.n} gibt es zu viele Pläne zum Aufzählen (mehr als {C.ENUM_MAX}!). Die Optima rechnen die Ungarische Methode (Summe, Quadratsumme) und ein Engpassverfahren (Maximum) exakt.")
 kind, text = verdict_landscape(a)

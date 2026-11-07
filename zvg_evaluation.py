@@ -106,10 +106,10 @@ def verdict_p(rows: list[dict]) -> tuple[str, str]:
     plans = len({r["plan"] for r in rows})
     totals = [r["total"] for r in rows]
     falls = any(b < a - C.TOL for a, b in zip(totals, totals[1:]))
-    base = f"Über p = 1 bis ∞ gibt es **{plans}** verschiedene Optimalpläne."
+    base = f"Über die getesteten Exponenten (Raster p = 1 bis ∞) gibt es **{plans}** verschiedene Optimalpläne."
     if falls:
-        return "warning", base + " Die Summe des Optimums **sinkt** irgendwo mit wachsendem p: Der „Preis“ des fairen Ziels wächst nicht gleichmäßig."
-    return "info", base + " Die Summe des Optimums sinkt mit wachsendem p an keiner Stelle."
+        return "warning", base + " Die Summe des Optimums **sinkt** zwischen zwei benachbarten Exponenten des Rasters: Der „Preis“ des fairen Ziels wächst nicht gleichmäßig."
+    return "info", base + " Die Summe des Optimums sinkt zwischen benachbarten Exponenten des Rasters nirgends."
 
 
 def verdict_frequency(rows: list[dict]) -> tuple[str, str]:
